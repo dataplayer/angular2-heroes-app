@@ -1,15 +1,14 @@
-import { browser, element, by } from 'protractor';
+import { Angular2TestPage } from './app.po';
 
-describe('QuickStart E2E Tests', function () {
+describe('angular2-test App', function() {
+  let page: Angular2TestPage;
 
-  let expectedMsg = 'Hello Angular';
-
-  beforeEach(function () {
-    browser.get('');
+  beforeEach(() => {
+    page = new Angular2TestPage();
   });
 
-  it('should display: ' + expectedMsg, function () {
-    expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
+  it('should display message saying app works', () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual('app works!');
   });
-
 });
